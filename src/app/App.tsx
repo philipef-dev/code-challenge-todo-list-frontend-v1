@@ -2,13 +2,14 @@ import React from 'react';
 import { Container, Area } from './App.styles';
 import { TaskList } from 'pages/TaskList';
 import { GlobalStyle } from 'styles/global';
+import useTasks from 'hooks/useTasks';
 
 function App() {
+  const { tasks, completeTask, deleteTask } = useTasks();
   return (
     <Container>
       <Area>
-        <TaskList />
-        {/* {process.env.REACT_APP_BASE_URL} */}
+        <TaskList tasks={tasks} onDelete={deleteTask} onComplete={completeTask} />
       </Area>
       <GlobalStyle />
     </Container>
