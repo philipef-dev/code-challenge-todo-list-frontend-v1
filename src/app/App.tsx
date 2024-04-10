@@ -1,11 +1,17 @@
 import React from 'react';
+import { Container, Area } from './App.styles';
+import { TaskList } from 'pages/TaskList';
+import { GlobalStyle } from 'styles/global';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Versão PhilipeF</h1>
-      {process.env.REACT_APP_BASE_URL}
-    </div>
+    <Container>
+      <Area>
+        <TaskList />
+        {/* {process.env.REACT_APP_BASE_URL} */}
+      </Area>
+      <GlobalStyle />
+    </Container>
   );
 }
 
