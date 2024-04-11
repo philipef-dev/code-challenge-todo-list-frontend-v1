@@ -10,6 +10,7 @@ import {
   EmptyList,
   BtnCreateNewTask,
 } from './styles';
+import { Link } from 'react-router-dom';
 
 interface TaskListProps {
   tasks: ITasksProps[];
@@ -48,7 +49,9 @@ export const TaskList = ({ tasks, onComplete, onDelete }: TaskListProps) => {
               </span>
             </EmptyList>
           )}
-          <BtnCreateNewTask> Crie uma nova tarefa</BtnCreateNewTask>
+          <Link to="/create-task">
+            <BtnCreateNewTask> Crie uma nova tarefa</BtnCreateNewTask>
+          </Link>
         </ContainerTodo>
       </Container>
     </>
