@@ -2,7 +2,6 @@ import React from 'react';
 import { TaskList } from 'pages/TaskList';
 import { CreateTask } from 'pages/CreateTask';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import useTasks from 'hooks/useTasks';
 import { Container, Area } from './App.styles';
 import { GlobalStyle } from 'styles/global';
