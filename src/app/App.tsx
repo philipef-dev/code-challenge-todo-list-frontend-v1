@@ -1,14 +1,14 @@
 import React from 'react';
-import { Container, Area } from './App.styles';
 import { TaskList } from 'pages/TaskList';
-import { GlobalStyle } from 'styles/global';
-import useTasks from 'hooks/useTasks';
-
+import { CreateTask } from 'pages/CreateTask';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { CreateTask } from 'pages/TaskList/CreateTask';
+
+import useTasks from 'hooks/useTasks';
+import { Container, Area } from './App.styles';
+import { GlobalStyle } from 'styles/global';
 
 function App() {
-  const { tasks, completeTask, deleteTask } = useTasks();
+  const { tasks, addTask, completeTask, deleteTask } = useTasks();
   return (
     <Router>
       <Container>
@@ -22,7 +22,7 @@ function App() {
               />
             </Route>
             <Route path="/create-task">
-              <CreateTask />
+              <CreateTask onNewTask={addTask} />
             </Route>
           </Switch>
         </Area>
