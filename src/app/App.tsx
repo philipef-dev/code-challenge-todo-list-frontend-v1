@@ -1,33 +1,21 @@
 import React from 'react';
-import { TaskList } from 'pages/TaskList';
-import { CreateTask } from 'pages/CreateTask';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import useTasks from 'hooks/useTasks';
+import { Route, Switch } from 'react-router-dom';
 import { Container, Area } from './App.styles';
 import { GlobalStyle } from 'styles/global';
+import { TaskListsRoutes } from 'routes/TasksListsRoutes';
+import { CreateTaskRoutes } from 'routes/CreateTasksRoutes';
 
 function App() {
-  const { tasks, addTask, completeTask, deleteTask } = useTasks();
   return (
-    <Router>
-      <Container>
-        <Area>
-          <Switch>
-            <Route exact path="/">
-              <TaskList
-                tasks={tasks}
-                onDelete={deleteTask}
-                onComplete={completeTask}
-              />
-            </Route>
-            <Route path="/create-task">
-              <CreateTask onNewTask={addTask} />
-            </Route>
-          </Switch>
-        </Area>
-        <GlobalStyle />
-      </Container>
-    </Router>
+    <Container>
+      <Area>
+        <Switch>
+          <Route exact path="/" component={TaskListsRoutes} />
+          <Route path="/create-task" component={CreateTaskRoutes} />
+        </Switch>
+      </Area>
+      <GlobalStyle />
+    </Container>
   );
 }
 
