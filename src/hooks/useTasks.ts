@@ -27,7 +27,7 @@ const useTasks = (): useTasksProps => {
   }, []);
 
   const addTask = (title: string, description: string, isCompleted: boolean) => {
-    if (title.trim() && description.trim() !== '') {
+    if (title.trim() !== '' && description.trim() !== '') {
       const newTask = {
         id: uuidv4(),
         title: title,

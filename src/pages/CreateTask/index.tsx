@@ -14,7 +14,7 @@ export const CreateTask = ({ onNewTask }: CreateTaskProps) => {
   const [description, setDescription] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
 
-  function handleSumit(event: FormEvent) {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     if (!title.trim() || !description.trim()) {
@@ -43,7 +43,7 @@ export const CreateTask = ({ onNewTask }: CreateTaskProps) => {
     <>
       <Titulo>Crie uma nova tarefa</Titulo>
       <Container>
-        <NewTaskForm onSubmit={handleSumit}>
+        <NewTaskForm onSubmit={handleSubmit}>
           <input
             placeholder="Adicione o título da tarefa"
             onChange={onChangeTitle}

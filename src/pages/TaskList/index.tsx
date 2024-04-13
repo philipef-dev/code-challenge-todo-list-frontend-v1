@@ -25,7 +25,7 @@ export const TaskList = ({ tasks, onComplete, onDelete }: TaskListProps) => {
       <Container>
         <ContainerTodo>
           {tasks.map((t) => (
-            <Todo key={t.id}>
+            <Todo isCompleted={t.isCompleted} key={t.id}>
               <div>
                 <h3>Título:</h3>
                 <p>{t.title}</p>
