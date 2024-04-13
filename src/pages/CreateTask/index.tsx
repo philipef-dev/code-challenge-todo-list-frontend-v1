@@ -10,8 +10,6 @@ interface CreateTaskProps {
 }
 
 export const CreateTask = ({ onNewTask }: CreateTaskProps) => {
-  console.log('Componente create task sendo renderizado');
-
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);

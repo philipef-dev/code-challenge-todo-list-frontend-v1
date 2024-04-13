@@ -19,7 +19,6 @@ interface TaskListProps {
 }
 
 export const TaskList = ({ tasks, onComplete, onDelete }: TaskListProps) => {
-  console.log('Componente tasklist sendo renderizado');
   return (
     <>
       <Titulo>Lista de tarefas</Titulo>
