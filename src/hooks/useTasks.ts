@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ITasksProps } from 'types/tasks';
 import { v4 as uuidv4 } from 'uuid';
-import { todoListService } from 'services/api';
+import { deleteTodo, todoListService } from 'services/api';
 
 interface useTasksProps {
   tasks: ITasksProps[];
@@ -53,8 +53,8 @@ const useTasks = (): useTasksProps => {
   };
 
   const deleteTask = (taskId: string) => {
-    const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(newTasks);
+    deleteTodo(taskId);
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
   return { tasks, addTask, completeTask, deleteTask };

@@ -4,23 +4,24 @@ import { DescriptionTasks, NewTaskForm } from './styles';
 import { Titulo } from 'pages/TaskList/styles';
 import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { addTodo } from 'services/api';
 
-interface CreateTaskProps {
-  onNewTask: (title: string, description: string, isCompleted: boolean) => void;
-}
+import { v4 as uuidv4 } from 'uuid';
 
-export const CreateTask = ({ onNewTask }: CreateTaskProps) => {
+export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
 
-  function handleSubmit(event: FormEvent) {
+  const onNewTasks = { id: uuidv4(), title, description, isCompleted };
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     if (!title.trim() || !description.trim()) {
       alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
     } else {
-      onNewTask(title, description, isCompleted);
+      addTodo(onNewTasks);
       alert(
         'Nova tarefa adicionada com sucesso. Por favor, verifique a lista de tarefas.'
       );
