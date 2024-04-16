@@ -15,21 +15,19 @@ import { Link } from 'react-router-dom';
 interface TaskListProps {
   tasks: ITasksProps[];
   onDelete: (taskId: string) => void;
-  onComplete: (taskId: string) => void;
 }
 
-export const TaskList = ({ tasks, onComplete, onDelete }: TaskListProps) => {
+export const TaskList = ({ tasks, onDelete }: TaskListProps) => {
   return (
     <>
       <Titulo>Lista de tarefas</Titulo>
       <Container>
         <ContainerTodo>
           {tasks.map((t) => (
-            <Todo isCompleted={t.isCompleted} key={t.id}>
+            <Todo key={t.id}>
               <div>
                 <h3>Título:</h3>
                 <p>{t.title}</p>
-                <input type="checkbox" onClick={() => onComplete(t.id)} />
               </div>
               <div>
                 <h3>Descrição:</h3>

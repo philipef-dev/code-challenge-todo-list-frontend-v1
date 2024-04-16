@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ITasksProps } from '../types/tasks';
+import { ITasksProps, INewTodoProps } from '../types/tasks';
 
 const url = 'http://localhost:4000';
 
@@ -10,7 +10,7 @@ export async function todoListService(): Promise<ITasksProps[]> {
   return response.data;
 }
 
-export async function addTodo(newTodo: ITasksProps) {
+export async function addTodo(newTodo: INewTodoProps) {
   try {
     const response = await axios.post(`${url}/todos`, newTodo, axiosConfig);
     return response.data;

@@ -4,14 +4,12 @@ import { TaskList } from '../pages/TaskList';
 import useTasks from 'hooks/useTasks';
 
 export const TaskListsRoutes = () => {
-  const { tasks, completeTask, deleteTask } = useTasks();
+  const { tasks, deleteTask } = useTasks();
 
   return (
     <Route
       path="/"
-      component={() => (
-        <TaskList tasks={tasks} onDelete={deleteTask} onComplete={completeTask} />
-      )}
+      component={() => <TaskList tasks={tasks} onDelete={deleteTask} />}
     />
   );
 };

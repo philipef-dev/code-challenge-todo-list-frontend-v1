@@ -6,14 +6,11 @@ import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { addTodo } from 'services/api';
 
-import { v4 as uuidv4 } from 'uuid';
-
 export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [isCompleted, setIsCompleted] = useState(false);
 
-  const onNewTasks = { id: uuidv4(), title, description, isCompleted };
+  const onNewTasks = { title, description };
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -28,7 +25,6 @@ export const CreateTask = () => {
 
       setTitle('');
       setDescription('');
-      setIsCompleted(false);
     }
   }
 

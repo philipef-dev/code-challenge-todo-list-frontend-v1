@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export type TodoProps = {
-  isCompleted?: boolean;
-};
-
 export const Container = styled.main`
   background-color: var(--gray-600);
   padding: 0.625rem;
@@ -23,13 +19,12 @@ export const ContainerTodo = styled.section`
   border-radius: 5px;
 `;
 
-export const Todo = styled.article<TodoProps>`
+export const Todo = styled.article`
   background-color: var(--gray-500);
   color: var(--text-body);
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 0.625rem;
-  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : 'none')};
   cursor: pointer;
 
   &:hover {
