@@ -5,6 +5,7 @@ import { Titulo } from 'pages/TaskList/styles';
 import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { addTodo } from 'services/api';
+import { validateTask } from 'hooks/useTasks';
 
 export const CreateTask = () => {
   const [title, setTitle] = useState('');
@@ -15,16 +16,19 @@ export const CreateTask = () => {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    if (!title.trim() || !description.trim()) {
-      alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
-    } else {
-      addTodo(onNewTasks);
-      alert(
-        'Nova tarefa adicionada com sucesso. Por favor, verifique a lista de tarefas.'
-      );
+    if (validateTask(onNewTasks)) {
+      try {
+        await addTodo(onNewTasks);
+        alert(
+          'Nova tarefa adicionada com sucesso. Por favor, verifique a lista de tarefas.'
+        );
 
-      setTitle('');
-      setDescription('');
+        setTitle('');
+        setDescription('');
+      } catch (error) {
+        console.error('Erro ao adicionar tarefa:', error);
+        alert('Ocorreu um erro ao adicionar a tarefa. Tente novamente.');
+      }
     }
   }
 
