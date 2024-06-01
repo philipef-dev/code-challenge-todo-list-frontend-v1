@@ -23,9 +23,14 @@ const useTasks = (): useTasksProps => {
     loadTasks();
   }, []);
 
-  const deleteTask = (taskId: string) => {
-    deleteTodo(taskId);
-    setTasks(tasks.filter((task) => task.id !== taskId));
+  const deleteTask = async (taskId: string) => {
+    try {
+      await deleteTodo(taskId);
+      const tasksData = await todoListService();
+      setTasks(tasksData);
+    } catch (error) {
+      console.log('Error ao deletar a tarefa', error);
+    }
   };
 
   return { tasks, deleteTask };
