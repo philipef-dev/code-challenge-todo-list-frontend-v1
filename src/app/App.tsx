@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container, Area } from './App.styles';
 import { GlobalStyle } from 'styles/global';
-import { TaskListsRoutes } from 'routes/TasksListsRoutes';
-import { CreateTaskRoutes } from 'routes/CreateTasksRoutes';
+
+import { CreateTaskRoutes, TaskListsRoutes } from 'routes/index';
 
 function App() {
   return (
