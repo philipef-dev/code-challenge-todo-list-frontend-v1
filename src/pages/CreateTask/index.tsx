@@ -5,11 +5,12 @@ import { Titulo } from 'pages/TaskList/styles';
 import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { addTodo } from 'services/api';
-import { validateTask } from 'hooks/useTasks';
+import useTasks from 'hooks/useTasks';
 
 export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const { validateTask } = useTasks();
 
   const onNewTasks = { title, description };
 
