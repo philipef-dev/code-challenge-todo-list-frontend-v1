@@ -5,7 +5,6 @@ import { deleteTodo, todoListService } from 'services/api';
 interface useTasksProps {
   tasks: ITasksProps[];
   deleteTask: (taskId: string) => void;
-  validateTask: (tasks: ITasksProps) => boolean;
 }
 
 const useTasks = (): useTasksProps => {
@@ -34,15 +33,7 @@ const useTasks = (): useTasksProps => {
     }
   };
 
-  const validateTask = (task: ITasksProps): boolean => {
-    if (!task.title.trim() || !task.description.trim()) {
-      alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
-      return false;
-    }
-    return true;
-  };
-
-  return { tasks, deleteTask, validateTask };
+  return { tasks, deleteTask };
 };
 
 export default useTasks;
