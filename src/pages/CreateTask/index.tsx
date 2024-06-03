@@ -29,6 +29,8 @@ export const CreateTask = () => {
         console.error('Erro ao adicionar tarefa:', error);
         alert('Ocorreu um erro ao adicionar a tarefa. Tente novamente.');
       }
+    } else if (!validateTask(onNewTasks)) {
+      alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
     }
   }
 
