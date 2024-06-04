@@ -11,14 +11,14 @@ export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const onNewTasks = { title, description };
+  const taskData = { title, description };
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    if (validateTask(onNewTasks)) {
+    if (validateTask(taskData)) {
       try {
-        await addTodo(onNewTasks);
+        await addTodo(taskData);
         alert(
           'Nova tarefa adicionada com sucesso. Por favor, verifique a lista de tarefas.'
         );
@@ -29,7 +29,7 @@ export const CreateTask = () => {
         console.error('Erro ao adicionar tarefa:', error);
         alert('Ocorreu um erro ao adicionar a tarefa. Tente novamente.');
       }
-    } else if (!validateTask(onNewTasks)) {
+    } else {
       alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
     }
   }
