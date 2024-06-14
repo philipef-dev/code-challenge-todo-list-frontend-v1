@@ -5,16 +5,16 @@ import { Titulo } from 'pages/TaskList/styles';
 import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { addTodo } from 'services/api';
-import { validateTask } from 'helpers/validate';
+import { validateTask } from 'helpers/validateTask';
 
 export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const taskData = { title, description };
-
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+
+    const taskData = { title, description };
 
     if (validateTask(taskData)) {
       try {
