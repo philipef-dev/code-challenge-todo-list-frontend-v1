@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ITasksProps, INewTodoProps } from '../types/tasks';
 
-const url = 'http://localhost:4000';
+const url = 'http://localhost:3000';
 
 const axiosConfig = { headers: { 'Content-Type': 'application/json' } };
 
