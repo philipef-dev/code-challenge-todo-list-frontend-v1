@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
    :root {
@@ -43,4 +43,19 @@ export const GlobalStyle = createGlobalStyle`
  h1, h2, h3, h4, h5, strong {
     font-weight: 600;
   }
+`;
+
+export const BtnPage = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--blue-dark);
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+  margin-right: 10px;
 `;

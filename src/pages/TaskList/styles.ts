@@ -81,7 +81,7 @@ export const BtnCreateNewTask = styled.button`
   }
 `;
 
-export const Modal = styled.div`
+export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -91,4 +91,62 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const Modal = styled.div`
+  background-color: var(--gray-600);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+
+  ${Titulo} {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    color: var(--gray-300);
+    font-weight: 700;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-500);
+    padding-bottom: 0.5rem;
+  }
+
+  .btnGroup {
+    display: flex;
+    grid-auto-rows: 2rem;
+  }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--gray-500);
+    color: var(--text-body);
+  }
+
+  textarea {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--gray-500);
+    color: var(--text-body);
+  }
 `;

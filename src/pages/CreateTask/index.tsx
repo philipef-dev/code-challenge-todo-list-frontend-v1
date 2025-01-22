@@ -53,7 +53,7 @@ export const CreateTask = () => {
             value={title}
           />
           <DescriptionTasks
-            placeholder="Adicione a descrição para a tarefa"
+            placeholder="Adicione uma descrição para a tarefa"
             rows={10}
             cols={70}
             value={description}
