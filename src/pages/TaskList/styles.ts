@@ -44,6 +44,7 @@ export const Todo = styled.article`
     border: none;
     border-radius: 2px;
     padding: 0.25rem;
+    margin-right: 10px;
     cursor: pointer;
   }
 

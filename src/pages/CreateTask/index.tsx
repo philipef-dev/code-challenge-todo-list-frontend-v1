@@ -60,12 +60,14 @@ export const CreateTask = () => {
             onChange={onChangeDescription}
           />
           <div>
-            <button type="submit">
+            <button type="submit" title="Criar uma nova tarefa">
               Criar
               <AiOutlinePlusCircle />
             </button>
             <Link to="/">
-              <button> Lista de tarefas </button>
+              <button title="Ir para a pagina de lista de tarefas">
+                Lista de tarefas
+              </button>
             </Link>
           </div>
         </NewTaskForm>
