@@ -120,7 +120,7 @@ export const Modal = styled.div`
 
   .btnGroup {
     display: flex;
-    grid-auto-rows: 2rem;
+    justify-content: flex-end;
   }
 `;
 

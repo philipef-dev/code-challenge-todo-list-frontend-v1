@@ -32,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
 
  body {
     background: var(--gray-700);
-    --webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
   }
 
  body, input, textarea, button {
@@ -58,4 +58,8 @@ export const BtnPage = styled.button`
   border: none;
   transition: background-color 0.2s;
   margin-right: 10px;
+
+  &:hover {
+    background-color: var(--blue-light);
+  }
 `;
