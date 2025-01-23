@@ -1,23 +1,32 @@
+import React, { useState } from 'react';
 import { InputGroup, Modal, ModalContainer, Titulo } from 'pages/TaskList/styles';
-import React from 'react';
 import { BtnPage } from 'styles/global';
+import { ITasksProps } from 'types/tasks';
 
-export const EditTaskModal = () => {
+interface EditTaskModalProps {
+  task: ITasksProps;
+  onSave: (editedTask: ITasksProps) => void;
+  onCancel: () => void;
+}
+
+export const EditTaskModal = ({ task, onSave, onCancel }: EditTaskModalProps) => {
+  const [taskToEdit, setTaskToEdit] = useState<ITasksProps>(task);
+
+  const handleSaveTask = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSave(taskToEdit);
+  };
+
   return (
     <ModalContainer>
       <Modal>
         <header>
           <Titulo>Editar tarefa</Titulo>
           <div>
-            <button onClick={() => setIsEditing(false)}>X</button>
+            <button onClick={onCancel}>X</button>
           </div>
         </header>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSaveTask(taskToEdit);
-          }}
-        >
+        <form onSubmit={handleSaveTask}>
           <InputGroup>
             <label htmlFor="title">Título: </label>
             <input
@@ -42,7 +51,7 @@ export const EditTaskModal = () => {
           </InputGroup>
           <div className="btnGroup">
             <BtnPage type="submit">Salvar</BtnPage>
-            <BtnPage onClick={() => setIsEditing(false)}>Cancelar</BtnPage>
+            <BtnPage onClick={onCancel}>Cancelar</BtnPage>
           </div>
         </form>
       </Modal>

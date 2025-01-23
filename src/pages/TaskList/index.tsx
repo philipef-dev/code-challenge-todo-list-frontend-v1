@@ -4,18 +4,9 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import { BiEditAlt } from 'react-icons/bi';
 import { TbClipboardText } from 'react-icons/tb';
 import { ITasksProps } from 'types/tasks';
-import {
-  ContainerTodo,
-  Titulo,
-  Container,
-  Todo,
-  EmptyList,
-  BtnCreateNewTask,
-  ModalContainer,
-  Modal,
-  InputGroup,
-} from './styles';
+import { ContainerTodo, Titulo, Container, Todo, EmptyList } from './styles';
 import { updateTaskService } from 'services/api';
+import { EditTaskModal } from 'components/EditTaskModal';
 import { BtnPage } from 'styles/global';
 
 interface TaskListProps {
@@ -80,55 +71,19 @@ export const TaskList = ({ tasks, onDelete, onEdit }: TaskListProps) => {
             </EmptyList>
           )}
           <Link to="/create-task">
-            <BtnCreateNewTask>Crie uma nova tarefa</BtnCreateNewTask>
+            <BtnPage>Crie uma nova tarefa</BtnPage>
           </Link>
         </ContainerTodo>
       </Container>
 
       {isEditing && taskToEdit && (
-        <ModalContainer>
-          <Modal>
-            <header>
-              <Titulo>Editar tarefa</Titulo>
-              <div>
-                <button onClick={() => setIsEditing(false)}>X</button>
-              </div>
-            </header>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSaveTask(taskToEdit);
-              }}
-            >
-              <InputGroup>
-                <label htmlFor="title">Título: </label>
-                <input
-                  type="text"
-                  value={taskToEdit.title}
-                  onChange={(e) =>
-                    setTaskToEdit({ ...taskToEdit, title: e.target.value })
-                  }
-                />
-              </InputGroup>
-              <InputGroup>
-                <label htmlFor="description">Descrição: </label>
-                <textarea
-                  value={taskToEdit.description}
-                  onChange={(e) =>
-                    setTaskToEdit({
-                      ...taskToEdit,
-                      description: e.target.value,
-                    })
-                  }
-                />
-              </InputGroup>
-              <div className="btnGroup">
-                <BtnPage type="submit">Salvar</BtnPage>
-                <BtnPage onClick={() => setIsEditing(false)}>Cancelar</BtnPage>
-              </div>
-            </form>
-          </Modal>
-        </ModalContainer>
+        <EditTaskModal
+          task={taskToEdit}
+          onSave={handleSaveTask}
+          onCancel={() => {
+            setIsEditing(false);
+          }}
+        />
       )}
     </>
   );

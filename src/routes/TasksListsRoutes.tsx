@@ -15,11 +15,7 @@ export const TaskListsRoutes = () => {
     <Route
       path="/"
       component={() => (
-        <TaskList
-          tasks={tasks}
-          onDelete={deleteTask}
-          onEdit={(taskId, updatedTask) => handleEditTask(taskId, updatedTask)}
-        />
+        <TaskList tasks={tasks} onDelete={deleteTask} onEdit={handleEditTask} />
       )}
     />
   );
