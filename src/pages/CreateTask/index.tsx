@@ -1,15 +1,17 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { DescriptionTasks, NewTaskForm } from './styles';
 import { Titulo } from 'pages/TaskList/styles';
 import { Container } from 'app/App.styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { addTodo } from 'services/api';
 import { validateTask } from 'helpers/validateTask';
+import { BtnPage } from 'styles/global';
+import { Link, useHistory } from 'react-router-dom';
 
 export const CreateTask = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const history = useHistory();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -20,8 +22,9 @@ export const CreateTask = () => {
       try {
         await addTodo(taskData);
         alert(
-          'Nova tarefa adicionada com sucesso. Por favor, verifique a lista de tarefas.'
+          'Nova tarefa adicionada com sucessoo! Você será redirecionado para a lista de tarefas.'
         );
+        history.push('/');
 
         setTitle('');
         setDescription('');
@@ -29,8 +32,6 @@ export const CreateTask = () => {
         console.error('Erro ao adicionar tarefa:', error);
         alert('Ocorreu um erro ao adicionar a tarefa. Tente novamente.');
       }
-    } else {
-      alert('Por favor preencha todos os campos para adicionar uma nova tarefa.');
     }
   }
 
@@ -60,14 +61,13 @@ export const CreateTask = () => {
             onChange={onChangeDescription}
           />
           <div>
-            <button type="submit" title="Criar uma nova tarefa">
-              Criar
-              <AiOutlinePlusCircle />
-            </button>
+            <BtnPage type="submit" title="Criar uma nova tarefa">
+              <AiOutlinePlusCircle size={40} />
+            </BtnPage>
             <Link to="/">
-              <button title="Ir para a pagina de lista de tarefas">
+              <BtnPage title="Ir para a pagina de lista de tarefas">
                 Lista de tarefas
-              </button>
+              </BtnPage>
             </Link>
           </div>
         </NewTaskForm>

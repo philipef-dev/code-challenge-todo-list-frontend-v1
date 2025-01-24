@@ -46,18 +46,14 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const BtnPage = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
   background-color: var(--blue-dark);
   color: var(--white);
+  padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
   border: none;
-  transition: background-color 0.2s;
   margin-right: 10px;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: var(--blue-light);

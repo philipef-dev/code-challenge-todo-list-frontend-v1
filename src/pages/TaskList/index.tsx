@@ -8,6 +8,7 @@ import { ContainerTodo, Titulo, Container, Todo, EmptyList } from './styles';
 import { updateTaskService } from 'services/api';
 import { EditTaskModal } from 'components/EditTaskModal';
 import { BtnPage } from 'styles/global';
+import { validateTask } from 'helpers/validateTask';
 
 interface TaskListProps {
   tasks: ITasksProps[];
@@ -30,9 +31,16 @@ export const TaskList = ({ tasks, onDelete, onEdit }: TaskListProps) => {
   const handleSaveTask = async (editedTask: ITasksProps) => {
     try {
       await updateTaskService(editedTask.id, editedTask);
-      onEdit(editedTask.id, editedTask);
-      setTaskToEdit(null);
-      setIsEditing(false);
+      if (
+        validateTask({
+          title: editedTask.title,
+          description: editedTask.description,
+        })
+      ) {
+        onEdit(editedTask.id, editedTask);
+        setTaskToEdit(null);
+        setIsEditing(false);
+      }
     } catch (error) {
       console.log('Erro ao salvar as aletrações na tarefa', error);
     }

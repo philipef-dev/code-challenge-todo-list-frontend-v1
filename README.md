@@ -2,7 +2,7 @@
 
 ## 📝Descrição
 
-Nesse code challenge simples, você só precisa desenvolver uma 'To Do list' com opções de adicionar e deletar um to do na lista (só isso mesmo, mas com código caprichado!).
+Nesse code challenge, você só precisa desenvolver uma 'To Do list' com opções de adicionar, deletar e editar um to do na lista (só isso mesmo, mas com código caprichado!).
 Todos os pacotes necessários para fazer isso já estão adicionados, mas se achar que tem necessidade, pode adicionar algo a mais (e explicar o motivo depois).
 
 O foco do code challenge é conhecer melhor e treinar sua **criatividade, organização, capricho, padrões seguidos, legibilidade do código e bom uso das ferramentas disponíveis** (sem gambiarras! 🤣), por isso, programe como se fosse um projeto profissional sendo feito para um cliente importante, tenha em mente que isso pode ir pro seu portfólio. O layout e design vai ser um diferencial, mas deixe pra caprichar nisso por último!
