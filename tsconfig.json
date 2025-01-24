@@ -21,6 +21,11 @@
     "jsx": "react",
     "noFallthroughCasesInSwitch": true
   },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "src/react-native",
+  ],
   "include": [
     "src"
   ]
